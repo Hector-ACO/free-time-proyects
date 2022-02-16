@@ -11,7 +11,6 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Data
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"user"}))
 public class User extends BaseModel {
 
     @NotEmpty(message = "El usuario se encuentra vacio")
