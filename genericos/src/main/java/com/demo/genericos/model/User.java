@@ -14,7 +14,6 @@ import javax.validation.constraints.NotEmpty;
 public class User extends BaseModel {
 
     @NotEmpty(message = "El usuario se encuentra vacio")
-    @Column(unique = true)
     private String user;
 
     @NotEmpty(message = "La contrasena se encuentra vacio")
