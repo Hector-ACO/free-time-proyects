@@ -59,7 +59,7 @@ public abstract class GenericResource<T extends BaseModel> {
             if(verify.isPresent()){
                 return ResponseEntity.ok(repository.save(entity));
             }
-            return ResponseEntity.badRequest().body("Entidad con id: "+entity.getId()+" no existe");
+            return ResponseEntity.notFound().build();
         }catch (DataIntegrityViolationException e){
             log.error(e.getLocalizedMessage());
             return ResponseEntity.internalServerError().body(e.getRootCause());
@@ -78,7 +78,7 @@ public abstract class GenericResource<T extends BaseModel> {
                 repository.deleteById(id);
                 return ResponseEntity.ok().build();
             }
-            return ResponseEntity.badRequest().body("Entidad con id: "+id+" no existe");
+            return ResponseEntity.notFound().build();
         }catch (Exception e){
             log.error(e.getMessage());
             return ResponseEntity.internalServerError().body(e.getMessage());
